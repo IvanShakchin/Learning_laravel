@@ -158,3 +158,6 @@ Route::get ('/request',MainController::class);
 
 
 Route::get ('/mypage',[MainController::class, 'mypage']);
+
+
+Route::get ('/testview',[MainController::class, 'testView']);
