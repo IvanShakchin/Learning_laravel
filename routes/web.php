@@ -1,6 +1,7 @@
 <?php
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +36,8 @@ Route::match (['get','post'], 'contacts', function () {
 
 Route::any ('feedback', function () { // обработает запросы любого вида
     return 'feedback'; 
-}) ;
+})->middleware('throttle:test'); // прописываем правило ограничения
+
 
 //получение параметров url 
 Route::get('/post/{parametr1}/{parametr2}', function ($id_1,$id_2) { 
@@ -68,7 +70,17 @@ Route::get('/user/{id?}', function ($id = 1) {
 });
 
 // Создание груп маршрутов например группа manager
-Route::prefix ('manager')->group (function (){
+// Route::prefix ('manager')->group (function (){
+//     Route::get('/', function () { 
+//         return 'manager.index';  
+//     });
+//     Route::get('/users', function () { 
+//         return 'manager.users';  
+//     });
+// });
+
+// прописываем ограничение для группы
+Route::group ([ 'prefix' => 'manager','middleware' => 'throttle:test'], function (){
     Route::get('/', function () { 
         return 'manager.index';  
     });
@@ -105,7 +117,10 @@ Route::get('/product/{id}/{comment}', function ($id_1,$id_2) {
 
 });
 
-Route::prefix ('admin')->group (function (){
+
+// Route::prefix ('admin')->group (function (){
+
+Route::group ([ 'prefix' => 'admin','middleware' => 'throttle:test'], function (){
 
     Route::match (['get','post'], '/', function () { 
         return 'admin.index';  
@@ -125,3 +140,21 @@ Route::prefix ('admin')->group (function (){
     });
 
 });
+
+
+
+Route::get('/secretpage', function () {  
+    return 'secretpage'; 
+})->middleware('checklocalhost'); // прописываем правило ограничения
+
+// в массиве указываем название контроллера и название функции
+Route::get ('/home',[MainController::class, 'home']);
+Route::get ('/map',[MainController::class, 'map']);
+
+Route::get ('/message/{id}',[MainController::class, 'message']);
+
+//  метод __invoke вызвается когда нет указания на конкретную функцию
+Route::get ('/request',MainController::class);
+
+
+Route::get ('/mypage',[MainController::class, 'mypage']);
