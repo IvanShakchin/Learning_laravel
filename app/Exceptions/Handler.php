@@ -7,8 +7,12 @@ use Throwable;
 
 class Handler extends ExceptionHandler
 {
+    // тут прописываем то что не нужно обрабатывать
+    // protected $dontReport = [
+    //     //
+    // ];
     /**
-     * The list of the inputs that are never flashed to the session on validation exceptions.
+     * Список входных данных, которые никогда не передаются в сеанс при проверке исключений.
      *
      * @var array<int, string>
      */
@@ -19,7 +23,7 @@ class Handler extends ExceptionHandler
     ];
 
     /**
-     * Register the exception handling callbacks for the application.
+     * зарегистрируйте обратные вызовы для обработки исключений для приложения.
      */
     public function register(): void
     {

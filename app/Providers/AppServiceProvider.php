@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -52,6 +53,12 @@ class AppServiceProvider extends ServiceProvider
             $view->with('basket_quantity', 15); 
             $view->with('basket_amount', 25874);
 
+        });
+
+        // importantmessage название нашей директивы
+        Blade::directive('importantmessage', function ($param) {
+        // возвращаем строку с php кодом которая будет подставляться в blade
+            return "<?php echo '<b>$param</b>'; ?>";
         });
 
 

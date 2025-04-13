@@ -11,11 +11,9 @@ return [
     |--------------------------------------------------------------------------
     | Default Log Channel
     |--------------------------------------------------------------------------
-    |
-    | This option defines the default log channel that gets used when writing
-    | messages to the logs. The name specified in this option should match
-    | one of the channels defined in the "channels" configuration array.
-    |
+    | Этот параметр определяет канал регистрации по умолчанию, который используется при записи
+    | сообщений в журналы. Имя, указанное в этом параметре, должно соответствовать
+    | одному из каналов, определенных в массиве конфигурации "каналы".
     */
 
     'default' => env('LOG_CHANNEL', 'stack'),
@@ -41,11 +39,11 @@ return [
     | Log Channels
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the log channels for your application. Out of
-    | the box, Laravel uses the Monolog PHP logging library. This gives
-    | you a variety of powerful log handlers / formatters to utilize.
+    | Здесь вы можете настроить каналы регистрации для вашего приложения. Изначально
+    | Laravel использует библиотеку ведения журнала Monolog PHP. Это дает
+    | вы можете использовать множество мощных обработчиков / форматировщиков журналов.
     |
-    | Available Drivers: "single", "daily", "slack", "syslog",
+    | Доступные драйверы:: "single", "daily", "slack", "syslog",
     |                    "errorlog", "monolog",
     |                    "custom", "stack"
     |
@@ -126,6 +124,13 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'mychannel' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/my.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+        ],
+
     ],
 
 ];

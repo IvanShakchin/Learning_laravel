@@ -161,3 +161,32 @@ Route::get ('/mypage',[MainController::class, 'mypage']);
 
 
 Route::get ('/testview',[MainController::class, 'testView']);
+
+Route::get ('/testblade',[MainController::class, 'testBlade']);
+
+Route::get ('/mypageblade',[MainController::class, 'mypageBlade']);
+
+Route::get ('/extendsview',[MainController::class, 'extendsView']);
+
+Route::get ('/testcomponents',[MainController::class, 'testComponents']);
+
+Route::get ('/testlayout',[MainController::class, 'testLayout']);
+
+Route::get ('/testresponse',[MainController::class, 'testResponse']);
+
+
+
+Route::get ('/testurl',[MainController::class, 'testUrl']);
+
+// создание секретной ссылки 
+// Route::get ('/activate',[MainController::class, 'activate'])->name ('activate');
+
+// создание секретной ссылки через посредника signed
+Route::get ('/activate',[MainController::class, 'activate'])
+    ->middleware ('signed')-> name('activate');
+
+Route::get ('/counter',[MainController::class, 'counter']);
+
+Route::get ('/testexception',[MainController::class, 'testException']);
+
+Route::get ('/testlog',[MainController::class, 'testLog']);
