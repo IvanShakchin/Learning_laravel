@@ -218,8 +218,26 @@ class MainController extends Controller
        throw new CustomException ();
     }
 
-    public function testLog() {    
-        Log::debug('debug-lavel message');
+    public function testLog() { 
+        /*https://datatracker.ietf.org/doc/html/rfc5424  Протокол системного журнала
+        Уровень ошибок:*/   
+        Log::debug('debug-lavel message'); //сообщения уровня отладки
+        Log::info('informational messages'); //сообщение: информационное сообщение 
+        Log::notice('normal but significant condition');//нормальное, но важное условие 
+        Log::warning('warning conditions');//условия предупреждения 
+        Log::error('error conditions');//условия ошибки 
+        Log::critical('critical conditions ');//критические условия 
+        Log::alert('action must be taken immediately');//необходимо немедленно принять меры 
+        Log::emergency('system is unusable');//система непригодна для использования 
+
+        // Запись в другой канал. каждый день будет новый файл
+        // черзе 14 дней файлы будут удаляться
+        Log::channel('daily')->info('daily: informational messages');
+
+        //запись в свой канал
+        Log::channel('mychannel')->info('mychannel: informational messages', ['data'=>'Передаем любые данные']);
+
         return 1;
     }    
+
 }

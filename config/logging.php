@@ -52,6 +52,7 @@ return [
     'channels' => [
         'stack' => [
             'driver' => 'stack',
+            //'name' => 'my_name',// совое имя в место local
             'channels' => ['single'],
             'ignore_exceptions' => false,
         ],
