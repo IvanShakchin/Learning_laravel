@@ -2,6 +2,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\DBController;
 
 /*
 |--------------------------------------------------------------------------
@@ -190,3 +191,5 @@ Route::get ('/counter',[MainController::class, 'counter']);
 Route::get ('/testexception',[MainController::class, 'testException']);
 
 Route::get ('/testlog',[MainController::class, 'testLog']);
+
+Route::get ('/testdb',[DBController::class, 'testDB']);
