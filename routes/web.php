@@ -193,3 +193,5 @@ Route::get ('/testexception',[MainController::class, 'testException']);
 Route::get ('/testlog',[MainController::class, 'testLog']);
 
 Route::get ('/testdb',[DBController::class, 'testDB']);
+
+Route::get ('/testquerybuilder',[DBController::class, 'testQueryBuilder']);
