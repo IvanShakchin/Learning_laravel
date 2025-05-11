@@ -195,3 +195,5 @@ Route::get ('/testlog',[MainController::class, 'testLog']);
 Route::get ('/testdb',[DBController::class, 'testDB']);
 
 Route::get ('/testquerybuilder',[DBController::class, 'testQueryBuilder']);
+
+Route::get ('/testpagination',[DBController::class, 'testPagination']);

@@ -183,7 +183,16 @@ class DBController extends Controller
         return "testQueryBuilder";
     }
 
+    public function  testPagination() {
 
+        // функция paginate(10) выдает объект из указанного кол-ва строк
+        // сама определяет для какой по счету сртраницы выдавать строки
+        $comments = DB::table('comments')->paginate(10);
+        
+        //echo ("<pre>");print_r($comments);echo ("</pre>");
+
+        return view('pagination',['comments'=>$comments]);
+    }
 
 
 }
