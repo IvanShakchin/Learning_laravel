@@ -3,6 +3,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\DBController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -197,3 +198,5 @@ Route::get ('/testdb',[DBController::class, 'testDB']);
 Route::get ('/testquerybuilder',[DBController::class, 'testQueryBuilder']);
 
 Route::get ('/testpagination',[DBController::class, 'testPagination']);
+
+Route::get ('/testmodel',[PostController::class, 'testModel']);

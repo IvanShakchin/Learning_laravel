@@ -4,10 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
     // если нужно изменить название таблици 
     // то меняем название в миграции postsneo и пишем тут
     // protected $table = 'postsneo';
@@ -26,5 +29,8 @@ class Post extends Model
         'title' => 'Новый пост',
         'is_publish'=> false
     ];
+
+    protected $fillable = ['autor'];
+
 
 }
