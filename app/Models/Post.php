@@ -25,7 +25,6 @@ class Post extends Model
     protected $attributes = [
         'title' => 'Новый пост',
         'is_publish'=> false
-    ]
-
+    ];
 
 }

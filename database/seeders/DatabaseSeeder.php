@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         // прописываем вызовы созданных сидоров
         $this->call([
             CommentsSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }
