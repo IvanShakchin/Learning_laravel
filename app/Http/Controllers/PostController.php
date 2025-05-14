@@ -102,4 +102,29 @@ class PostController extends Controller
         }       
         return '';
     }
+
+
+    public function  testAm(){
+        $post = Post::find(1);
+        echo $post->autor;
+
+        $post->autor;
+        $post->autor='Новый автор';
+        $post->save();
+
+
+
+        echo ('<br>');
+        echo gettype ($post->is_publish);
+
+        return '';
+    }
+
+    public function  testObserver(){
+        $post = Post::factory()->make();
+        $post->title = "Пример для create testObserver ";
+        $post->save();
+
+        return 'testObserver';
+    }
 }

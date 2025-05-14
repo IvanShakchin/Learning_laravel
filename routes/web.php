@@ -200,3 +200,7 @@ Route::get ('/testquerybuilder',[DBController::class, 'testQueryBuilder']);
 Route::get ('/testpagination',[DBController::class, 'testPagination']);
 
 Route::get ('/testmodel',[PostController::class, 'testModel']);
+
+Route::get ('/testam',[PostController::class, 'testAm']);
+
+Route::get ('/testobserver',[PostController::class, 'testObserver']);
