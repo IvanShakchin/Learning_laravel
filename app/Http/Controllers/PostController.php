@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Address;
+use App\Models\Client;
+use App\Models\Order;
 
 class PostController extends Controller
 {
@@ -126,5 +129,38 @@ class PostController extends Controller
         $post->save();
 
         return 'testObserver';
+    }
+
+    public function testRelations(){
+
+        // // пример вывода адреса по данным из таблицы клиент
+        // $client = Client::find(1);
+        // echo $client->name.'<br>';
+        // // address->address тут сначала обращаемся к модели address а потом к полю address
+        // echo $client->address->address.'<br><br>';
+
+        // // пример вывода клиента по данным из таблицы адрес
+        // $address = Address::find(2);
+        // echo $address->address.'<br>';
+
+        // echo $address->client->name.'<br>';
+        // echo $address->client->id.'<br>';
+
+        // пример как получить все заказы клиента id 1
+        $orders = Client::find(1)->orders;
+        foreach ($orders as $order) {
+            echo $order->id.'<br>';
+        }
+
+        echo '<br>';
+
+        // пример получения id клиента по id заказа
+        $client = Order::find(1)->client;
+        echo $client->name.'<br><br>';
+
+
+
+
+        return 'testRelations';
     }
 }

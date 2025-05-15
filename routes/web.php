@@ -204,3 +204,5 @@ Route::get ('/testmodel',[PostController::class, 'testModel']);
 Route::get ('/testam',[PostController::class, 'testAm']);
 
 Route::get ('/testobserver',[PostController::class, 'testObserver']);
+
+Route::get ('/testrelations',[PostController::class, 'testRelations']);
