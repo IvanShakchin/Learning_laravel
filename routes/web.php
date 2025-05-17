@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\DBController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\AddressController;
 
 /*
 |--------------------------------------------------------------------------
@@ -206,3 +207,7 @@ Route::get ('/testam',[PostController::class, 'testAm']);
 Route::get ('/testobserver',[PostController::class, 'testObserver']);
 
 Route::get ('/testrelations',[PostController::class, 'testRelations']);
+
+
+//use App\Http\Controllers\AddressController;
+Route::resource('addresses', AddressController::class);

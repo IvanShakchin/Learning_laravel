@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Address;
 use App\Models\Client;
 use App\Models\Order;
+use App\Models\Product;
 
 class PostController extends Controller
 {
@@ -158,9 +159,26 @@ class PostController extends Controller
         $client = Order::find(1)->client;
         echo $client->name.'<br><br>';
 
+        echo '<br>------------------------------<br>';
+
+        // пример получения товара из таблицы заказов
+        $products = Order::find(1)->products;
+        echo ('В заказе № '.Order::find(1)->id.'<br>');
+        foreach ($products as $product) {
+            echo ('товар №'.$product->id.' '.$product->title.'<br>');
+        }  
+        
+        echo '<br>------------------------------<br>';
+
+        // пример получения всех заказов в которых есть конкретный товар
+        // use App\Models\Product;
+        $orders = Product::find(1)->orders;
+        echo ('Товар № '.Product::find(1)->id.'<br>');
+        foreach ($orders as $order) {
+            echo ('есть в заказе № '.$order->id.' Клиент - '.$order->client->name.'<br>');
+        }
 
 
-
-        return 'testRelations';
+        return '';
     }
 }
