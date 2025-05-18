@@ -5,6 +5,7 @@ use App\Http\Controllers\MainController;
 use App\Http\Controllers\DBController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AddressController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -209,5 +210,10 @@ Route::get ('/testobserver',[PostController::class, 'testObserver']);
 Route::get ('/testrelations',[PostController::class, 'testRelations']);
 
 
+
 //use App\Http\Controllers\AddressController;
 Route::resource('addresses', AddressController::class);
+
+//use App\Http\Controllers\FormController;
+Route::get ('/testform',[FormController::class, 'testForm']);
+Route::post ('/testform/send',[FormController::class, 'send']);
