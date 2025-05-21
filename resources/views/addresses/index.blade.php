@@ -58,23 +58,28 @@
                 @foreach ( $addresses as $address )                
                 <li>
                     <a href="{{ route('addresses.show', ['address' => $address]) }}"> {{ $address->address }} </a>
+                    <a href="{{ route('addresses.edit', ['address' => $address]) }}"> Редактировать</a>
+                
+                    <form nama='delete' method='post' action='{{ route('addresses.destroy', ['address' => $address]) }}'>
+                    @csrf
+                    @method('DELETE')
+                    <input type='submit' value='Удалить' />
+                    </form>
                 </li>
                 @endforeach
-              </ul>
-          
-          
+                <li>
+                    <a href='{{ route('addresses.create') }}'>Добваить адрес</a>
+                </li>
+              </ul>       
           </div>
         
           
-          <a href="#" class="link_404">Go to Home</a>
+          <a href="#" class="">Go to Home</a>
       </div>
           </div>
           </div>
           </div>
       </div>
   </section>
-  
-
-  
 </body>
 </html>
