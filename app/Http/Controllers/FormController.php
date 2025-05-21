@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\TestFormRequest;
 
 class FormController extends Controller
 {
@@ -27,5 +28,20 @@ class FormController extends Controller
 
 
         return '';
+    }
+
+    // use App\Http\Requests\TestFormRequest;
+    public function senBbyRequest (TestFormRequest $request){ 
+        // получение данных как массива
+        $validated = $request->validated();
+        echo ('<pre>');print_r($validated);echo ('</pre>');
+
+        // получение данных как объекта
+        $validated = $request->safe();
+        echo ('<pre>');print_r($validated);echo ('</pre>');
+        echo $validated->name.'<br>';
+        echo $validated->text.'<br>';
+        echo $validated->bd.'<br>';
+        return 1;
     }
 }

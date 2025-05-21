@@ -16,7 +16,8 @@
             @endforeach
         @endif
         <h2>Заполните форму</h2>
-        <form name='myform' action='/testform/send' method='post'>
+        {{-- <form name='myform' action='/testform/send' method='post'> --}}
+        <form name='myform' action='/testform/sendbyrequest' method='post'>
             {{-- можно отравлять формы разными методами  --}}
             {{-- @method('PUT') --}}
             {{-- @method('PATCH') --}}
