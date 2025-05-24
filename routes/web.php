@@ -219,3 +219,5 @@ Route::get ('/testform',[FormController::class, 'testForm']);
 Route::post ('/testform/send',[FormController::class, 'send']);
 
 Route::post ('/testform/sendbyrequest',[FormController::class, 'senBbyRequest']);
+
+Route::any ('/testupload',[FormController::class, 'testUpload']);

@@ -4,27 +4,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Default Filesystem Disk
+    | Диск файловой системы по умолчанию
     |--------------------------------------------------------------------------
     |
-    | Here you may specify the default filesystem disk that should be used
-    | by the framework. The "local" disk, as well as a variety of cloud
-    | based disks are available to your application. Just store away!
-    |
+    | Здесь вы можете указать диск файловой системы по умолчанию, который 
+    | следует использовать с помощью фреймворка. "Локальный" диск, а также 
+    | различные облачные вашему приложению доступны диски на основе  
+    | Просто храните подальше!
     */
 
     'default' => env('FILESYSTEM_DISK', 'local'),
 
     /*
     |--------------------------------------------------------------------------
-    | Filesystem Disks
+    | Диски файловой системы
     |--------------------------------------------------------------------------
     |
-    | Here you may configure as many filesystem "disks" as you wish, and you
-    | may even configure multiple disks of the same driver. Defaults have
-    | been set up for each driver as an example of the required values.
-    |
-    | Supported Drivers: "local", "ftp", "sftp", "s3"
+    | Здесь вы можете настроить столько "дисков" файловой системы, сколько пожелаете, 
+    | и вы можете даже настроить несколько дисков для одного и того же драйвера. 
+    | Для каждого драйвера были установлены значения по умолчанию 
+    | в качестве примера требуемых значений.
+    | Поддерживаемые драйверы: "local", "ftp", "sftp", "s3"
     |
     */
 
@@ -32,13 +32,13 @@ return [
 
         'local' => [
             'driver' => 'local',
-            'root' => storage_path('app'),
+            'root' => storage_path('app'),// файлы хранятся в storage/app
             'throw' => false,
         ],
 
         'public' => [
             'driver' => 'local',
-            'root' => storage_path('app/public'),
+            'root' => storage_path('app/public'),// файлы хранятся в storage/app/public
             'url' => env('APP_URL').'/storage',
             'visibility' => 'public',
             'throw' => false,
@@ -60,17 +60,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Symbolic Links
+    | Символические ссылки
     |--------------------------------------------------------------------------
     |
-    | Here you may configure the symbolic links that will be created when the
-    | `storage:link` Artisan command is executed. The array keys should be
-    | the locations of the links and the values should be their targets.
+    | Здесь вы можете настроить символьные ссылки, которые будут созданы при  
+    | выполнении команды Artisan `storage:link". Ключами массива должны быть
+    | местоположения ссылок, а значения - их целевыми объектами.
     |
     */
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
     ],
-
+    // php artisan storage:link
+    // при запросе storage у нас будут открываться файлы из app/public
+    // INFO  The [C:\OSPanel\home\laravel.local\public\storage] link has been connected 
+    // to [C:\OSPanel\home\laravel.local\storage\app/public].
 ];
