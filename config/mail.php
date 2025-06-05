@@ -87,6 +87,8 @@ return [
             ],
         ],
 
+        // вариант использования нескольких видов отправки
+        // если не срабатывает один то используется другой
         'roundrobin' => [
             'transport' => 'roundrobin',
             'mailers' => [
@@ -123,9 +125,9 @@ return [
     |
     */
 
+    // возможно использовать шаблон письма
     'markdown' => [
         'theme' => 'default',
-
         'paths' => [
             resource_path('views/vendor/mail'),
         ],

@@ -6,6 +6,7 @@ use App\Http\Controllers\DBController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AddressController;
 use App\Http\Controllers\FormController;
+use App\Http\Controllers\AdvancedController;
 
 /*
 |--------------------------------------------------------------------------
@@ -209,8 +210,6 @@ Route::get ('/testobserver',[PostController::class, 'testObserver']);
 
 Route::get ('/testrelations',[PostController::class, 'testRelations']);
 
-
-
 //use App\Http\Controllers\AddressController;
 Route::resource('addresses', AddressController::class);
 
@@ -221,3 +220,6 @@ Route::post ('/testform/send',[FormController::class, 'send']);
 Route::post ('/testform/sendbyrequest',[FormController::class, 'senBbyRequest']);
 
 Route::any ('/testupload',[FormController::class, 'testUpload']);
+
+//use App\Http\Controllers\AdvancedController;
+Route::get ('/testmail',[AdvancedController::class, 'testMail']);
