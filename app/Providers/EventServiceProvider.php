@@ -8,6 +8,9 @@ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvi
 use Illuminate\Support\Facades\Event;
 use App\Models\Post;
 use App\Observers\PostObserver;
+use App\Events\MyEvent;
+use App\Listeners\MyEventNotificafion;
+
 
 
 class EventServiceProvider extends ServiceProvider
@@ -17,10 +20,16 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array<class-string, array<int, class-string>>
      */
+    // прописываем выопление нашего события
+    // use App\Events\MyEvent;
+    // use App\Listiners\MyEventNotificafion;
     protected $listen = [
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        MyEvent::class => [
+            MyEventNotificafion::class,
+        ]
     ];
 
     /**

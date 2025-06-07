@@ -223,3 +223,7 @@ Route::any ('/testupload',[FormController::class, 'testUpload']);
 
 //use App\Http\Controllers\AdvancedController;
 Route::get ('/testmail',[AdvancedController::class, 'testMail']);
+
+Route::get ('/testnotification',[AdvancedController::class, 'testNotification']);
+
+Route::get ('/testevent',[AdvancedController::class, 'testEvent']);
